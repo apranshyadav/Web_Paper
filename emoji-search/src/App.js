@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 
 function App() {
-  const [allMemes, setAllMemes] = useState([]);     // API data
-  const [search, setSearch] = useState("");         // input box
-  const [filtered, setFiltered] = useState([]);     // searched results
+  const [allMemes, setAllMemes] = useState([]);     
+  const [search, setSearch] = useState("");         
+  const [filtered, setFiltered] = useState([]);     
 
-  // FETCH API ONCE WHEN PAGE LOADS
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then(res => res.json())
@@ -14,7 +13,6 @@ function App() {
       });
   }, []);
 
-  // Search handler
   const handleSearch = () => {
     const keyword = search.toLowerCase().trim();
 
